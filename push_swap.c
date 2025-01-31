@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:33:38 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/23 13:30:40 by zouazrou         ###   ########.fr       */
+/*   Created: 2025/01/31 17:38:19 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/01/31 18:08:21 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	main(int ac, char **av)
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 	int		size_a;
 
-	stack_initialization(&stack_a, ac,av + 1);
+	stack_initialization(&stack_a, ac, av + 1);
 	stack_b = NULL;
 	size_a = ft_lstsize(stack_a);
 	if (size_a == 2 && !is_sorted(stack_a))

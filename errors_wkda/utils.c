@@ -6,13 +6,13 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:20:55 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/22 11:22:22 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:30:10 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-BOOL	isduplicate(t_list *stack)
+t_bool	isduplicate(t_list *stack)
 {
 	t_list	*curr;
 
@@ -22,12 +22,12 @@ BOOL	isduplicate(t_list *stack)
 		while (curr)
 		{
 			if (stack->content == curr->content)
-				return (1);
+				return (TRUE);
 			curr = curr->next;
 		}
 		stack = stack->next;
 	}
-	return (0);
+	return (FALSE);
 }
 
 void	ft_free_array(char **arr)
