@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:37:34 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/31 21:39:52 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/01 15:16:24 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ void	transfernumbers_to_b(t_list **_a, t_list **_b)
 
 void	sort_stack(t_list **_a, t_list **_b)
 {
-	int	sz_a;
-
 	if (is_sorted(*_a))
 		return ;
 	transfernumbers_to_b(_a, _b);

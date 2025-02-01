@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:38:06 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/31 20:58:44 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/01 15:12:53 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	indexing(t_list *stack, int size)
 
 int	min_moves(t_list *node)
 {
-	int		moves;
 	t_list	*target;
 
 	target = node->target;
