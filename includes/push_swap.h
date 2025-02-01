@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:41 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/31 20:47:13 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/01 11:23:55 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void				final_touch(t_list **_a);
 void				pb(t_list **stack_a, t_list **stack_b);
 void				pa(t_list **stack_a, t_list **stack_b);
 void				sa(t_list **stack);
-void				sb(t_list **stack);
-void				ss(t_list **stack_a, t_list **stack_b);
 void				ra(t_list **stack);
 void				rb(t_list **stack);
 void				rr(t_list **stack_a, t_list **stack_b);
