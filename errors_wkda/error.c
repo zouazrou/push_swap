@@ -6,47 +6,26 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:13 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/31 22:48:15 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/01 11:04:45 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	free_stacks(t_list **_a, t_list **_b, t_bool err)
-{
-	if (_a)
-		ft_lstclear(_a);
-	if (_b)
-		ft_lstclear(_b);
-	if (err == TRUE)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	return ;
-}
 
 int	inside_range_int(long nb)
 {
 	return (nb >= INT_MIN && nb <= INT_MAX);
 }
 
-int	check(char *av)
+int	check(char *av, t_bool sign)
 {
 	int		i;
 	int		count;
 	t_bool	non_zero;
-	t_bool	sign;
 
 	i = 0;
 	count = 0;
 	non_zero = FALSE;
-	sign = FALSE;
-	if ((av[i] == '-' || av[i] == '+'))
-	{
-		i++;
-		sign = TRUE;
-	}
 	while (av[i])
 	{
 		if (!ft_isdigit(av[i]))
@@ -57,9 +36,16 @@ int	check(char *av)
 			count++;
 		i++;
 	}
-	if (count > 11 || (sign == TRUE && non_zero == FALSE) || (sign == TRUE && !av[1]))
+	if (count > 11 || (sign == TRUE && non_zero == FALSE) || (sign == TRUE
+			&& !av[0]))
 		return (0);
 	return (1337);
+}
+
+void	init_sign(t_bool *sign, char **av)
+{
+	*sign = TRUE;
+	(*av)++;
 }
 
 void	extract_nb(char **nbrs, t_list **stack)
@@ -67,6 +53,7 @@ void	extract_nb(char **nbrs, t_list **stack)
 	int		i;
 	long	nb;
 	char	*av;
+	t_bool	sign;
 
 	if (!nbrs || !*nbrs || !**nbrs)
 		(ft_free_array(nbrs), free_stacks(stack, NULL, TRUE));
@@ -74,16 +61,18 @@ void	extract_nb(char **nbrs, t_list **stack)
 	while (nbrs[i])
 	{
 		av = nbrs[i];
-		if (!check(av))
+		sign = FALSE;
+		if ((*av == '-' || *av == '+'))
+			init_sign(&sign, &av);
+		if (!check(av, sign))
 			(ft_free_array(nbrs), free_stacks(stack, NULL, TRUE));
-		nb = ft_atoi(av);
+		nb = ft_atoi(av - (sign == TRUE));
 		if (inside_range_int(nb))
 			ft_lstadd_back(stack, ft_lstnew(nb));
 		else
 			(ft_free_array(nbrs), free_stacks(stack, NULL, TRUE));
 		i++;
 	}
-	ft_free_array(nbrs);
 }
 
 void	stack_initialization(t_list **stack, int ac, char **av)
