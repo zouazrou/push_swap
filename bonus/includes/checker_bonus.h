@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:41 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 13:37:18 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:42:07 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,15 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef	struct op_s
+typedef struct s_op
 {
-	char	key[4];
-	void	(*operation)(t_list **, t_list **);
-}			op_t;
+	char			key[4];
+	void			(*operation)(t_list **, t_list **);
+}					t_op;
 
 // linked list for implementation of stack
 
-t_list				*ft_lstnew(int content);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-int					ft_lstsize(t_list *lst);
-t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstsecondtolast(t_list *lst);
+t_list				*ft_lstnew(t_list *lst);
 void				ft_lstdelone(t_list *lst);
 void				ft_lstclear(t_list **lst);
 
@@ -94,10 +89,12 @@ void				rrb(t_list **_a, t_list **_b);
 void				rrr(t_list **_a, t_list **_b);
 
 // hash map
-void	init(op_t **hash_table);
-unsigned int	hash(char *key);
-t_bool	acces(op_t **hash_table, char *key, t_list **_a, t_list **_b);
-t_bool	insert(op_t **hash_table, char *key, void (*f)(t_list **, t_list **));
-void free_hash_table(op_t **hash_table);
+void				init(t_op **hash_table);
+unsigned int		hash(char *key);
+t_bool				acces(t_op **hash_table, char *key, t_list **_a,
+						t_list **_b);
+t_bool				insert(t_op **hash_table, char *key, void (*f)(t_list **,
+							t_list **));
+void				free_hash_table(t_op **hash_table);
 
 #endif

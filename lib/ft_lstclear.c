@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:04:04 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/22 09:58:37 by zouazrou         ###   ########.fr       */
+/*   Created: 2024/11/03 17:04:01 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/02/04 18:26:13 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void	del(void *content)
-// {
-// 	free(content);
-// }
-void	ft_lstdelone(t_list *lst)
+void	ft_lstclear(t_list **lst)
 {
-	if (!lst)
+	t_list	*previous;
+	t_list	*current;
+
+	if (!lst || !*lst)
 		return ;
-	free(lst);
+	previous = *lst;
+	current = *lst;
+	while (previous)
+	{
+		current = current->next;
+		ft_lstdelone(previous);
+		previous = current;
+	}
+	*lst = NULL;
 }

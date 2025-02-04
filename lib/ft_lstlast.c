@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:04:18 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/21 17:23:10 by zouazrou         ###   ########.fr       */
+/*   Created: 2024/11/03 17:04:10 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/02/04 18:26:13 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	size;
-
-	size = 0;
-	while (lst)
-	{
-		size++;
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 		lst = lst->next;
-	}
-	return (size);
+	return (lst);
 }

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:03:55 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/21 17:22:25 by zouazrou         ###   ########.fr       */
+/*   Created: 2024/11/03 17:04:18 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/02/04 18:26:13 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*current;
+	int	size;
 
-	if (!new)
-		free_stacks(lst, NULL, TRUE);
-	if (!*lst)
-		*lst = new;
-	else
+	size = 0;
+	while (lst)
 	{
-		current = ft_lstlast(*lst);
-		current->next = new;
+		size++;
+		lst = lst->next;
 	}
+	return (size);
 }
