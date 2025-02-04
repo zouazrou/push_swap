@@ -6,22 +6,22 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:19:54 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 18:35:52 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:54:49 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../get_next_line/get_next_line.h"
 #include "../includes/checker_bonus.h"
 
-void	free_all(t_list **_a, t_list **_b, t_bool flag, op_t **table)
+void	free_all(t_list **_a, t_list **_b, t_bool flag, t_op **table)
 {
 	char	*line;
 
-	*line = get_next_line(0);
-	while ((*line))
+	line = get_next_line(0);
+	while (line)
 	{
-		safe_free(line);
-		*line = get_next_line(0);
+		safe_free(&line);
+		line = get_next_line(0);
 	}
 	free_hash_table(table);
 	free_stacks(_a, _b, flag);
@@ -42,7 +42,7 @@ int	is_sorted(t_list *curr)
 	return (1);
 }
 
-t_bool	insert_operations(op_t **hash_table)
+t_bool	insert_operations(t_op **hash_table)
 {
 	init(hash_table);
 	if (FALSE == insert(hash_table, "sa\n", sa))
@@ -55,7 +55,7 @@ t_bool	insert_operations(op_t **hash_table)
 		return (FALSE);
 	if (FALSE == insert(hash_table, "rb\n", rb))
 		return (FALSE);
-	if (FALSE == inserlinet(hash_table, "rr\n", rr))
+	if (FALSE == insert(hash_table, "rr\n", rr))
 		return (FALSE);
 	if (FALSE == insert(hash_table, "rra\n", rra))
 		return (FALSE);
@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 	t_list	*_a;
 	t_list	*_b;
 	char	*line;
-	op_t	*hash_table[SIZE];
+	t_op	*hash_table[SIZE];
 
 	stack_initialization(&_a, ac, av + 1);
 	_b = NULL;

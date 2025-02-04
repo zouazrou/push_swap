@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:41 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 18:42:07 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/04 20:39:45 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,23 @@ typedef struct s_op
 
 // linked list for implementation of stack
 
-t_list				*ft_lstnew(t_list *lst);
 void				ft_lstdelone(t_list *lst);
 void				ft_lstclear(t_list **lst);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+t_list				*ft_lstnew(int content);
+int					ft_lstsize(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
+t_list				*ft_lstsecondtolast(t_list *lst);
 
 // utils ...
 
-void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
 int					ft_isdigit(int c);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 long				ft_atoi(const char *nptr);
 char				**ft_split(char const *s, char c);
-int					ft_max(int n1, int n2);
-int					ft_min(int n1, int n2);
 int					ft_strcmp(const char *s1, const char *s2);
-int					ft_abs(int n);
 
 // handing the errors
 
