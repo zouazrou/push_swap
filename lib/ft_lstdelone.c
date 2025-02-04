@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 13:42:08 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 09:10:28 by zouazrou         ###   ########.fr       */
+/*   Created: 2024/11/03 17:04:04 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/02/04 18:26:13 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker_bonus.h"
+#include "../includes/push_swap.h"
 
-void	rotate(t_list **stack)
+// void	del(void *content)
+// {
+// 	free(content);
+// }
+void	ft_lstdelone(t_list *lst)
 {
-	t_list	*first;
-
-	if (!stack || !(*stack) || !(*stack)->next)
+	if (!lst)
 		return ;
-	first = *stack;
-	*stack = (*stack)->next;
-	first->next = NULL;
-	ft_lstlast(*stack)->next = first;
-}
-
-void	ra(t_list **_a, t_list **_b)
-{
-	(void)_b;
-	rotate(_a);
-}
-
-void	rb(t_list **_a, t_list **_b)
-{
-	(void)_a;
-	rotate(_b);
-}
-
-void	rr(t_list **_a, t_list **_b)
-{
-	rotate(_a);
-	rotate(_b);
+	free(lst);
 }

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HashMap_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 18:20:54 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/02/04 18:39:59 by zouazrou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/checker_bonus.h"
 
-unsigned int hash(char *key)
+unsigned int	hash(char *key)
 {
 	int				len;
 	unsigned int	hash_value;
@@ -11,23 +23,23 @@ unsigned int hash(char *key)
 	i = 0;
 	while (i < len)
 	{
-		hash_value += key[i] + ((key[i]%2) * 32);
+		hash_value += key[i] + ((key[i] % 2) * 32);
 		hash_value = (hash_value * key[i]) % SIZE;
 		i++;
 	}
 	return (hash_value);
 }
 
-t_bool	insert(op_t **hash_table, char *key, void (*f)(t_list **, t_list **))
+t_bool	insert(t_op **hash_table, char *key, void (*f)(t_list **, t_list **))
 {
-	unsigned int index;
-	op_t	*element;
-	int		flag;
+	unsigned int	index;
+	t_op			*element;
+	int				flag;
 
 	if (!key)
 		return (FALSE);
 	flag = SIZE;
-	element = malloc(1 * sizeof(op_t));
+	element = malloc(1 * sizeof(t_op));
 	if (!element)
 		return (FALSE);
 	strcpy(element->key, key);
@@ -43,10 +55,10 @@ t_bool	insert(op_t **hash_table, char *key, void (*f)(t_list **, t_list **))
 	return (TRUE);
 }
 
-void free_hash_table(op_t **hash_table)
+void	free_hash_table(t_op **hash_table)
 {
-	unsigned int index;
-	int	i;
+	unsigned int	index;
+	int				i;
 
 	index = hash(hash_table[0]->key);
 	i = 0;
@@ -61,7 +73,7 @@ void free_hash_table(op_t **hash_table)
 	}
 }
 
-void	init(op_t **hash_table)
+void	init(t_op **hash_table)
 {
 	int	i;
 
@@ -70,10 +82,10 @@ void	init(op_t **hash_table)
 		hash_table[i] = NULL;
 }
 
-t_bool	acces(op_t **hash_table, char *key, t_list **_a, t_list **_b)
+t_bool	acces(t_op **hash_table, char *key, t_list **_a, t_list **_b)
 {
-	unsigned int index;
-	unsigned int flag;
+	unsigned int	index;
+	unsigned int	flag;
 
 	index = hash(key);
 	flag = SIZE;
@@ -83,6 +95,5 @@ t_bool	acces(op_t **hash_table, char *key, t_list **_a, t_list **_b)
 		if (!--flag)
 			return (FALSE);
 	}
-	return (hash_table[index]->operation(_a,_b), TRUE);
+	return (hash_table[index]->operation(_a, _b), TRUE);
 }
-

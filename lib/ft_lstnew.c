@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:04:10 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/21 17:22:47 by zouazrou         ###   ########.fr       */
+/*   Created: 2024/11/03 17:04:15 by zouazrou          #+#    #+#             */
+/*   Updated: 2025/02/04 18:26:13 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstnew(int content)
 {
-	if (!lst)
+	t_list	*newnode;
+
+	newnode = malloc(sizeof(t_list));
+	if (!newnode)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	newnode->content = content;
+	newnode->next = NULL;
+	return (newnode);
 }
