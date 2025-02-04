@@ -1,14 +1,4 @@
 #include "../includes/checker_bonus.h"
-#include <stdio.h>
-#include <string.h>
-
-#define SIZE 12
-
-typedef	struct op_s
-{
-	char	key[4];
-	void (*operation)(t_list **, t_list **);
-} op_t;
 
 unsigned int hash(char *key)
 {
@@ -25,7 +15,6 @@ unsigned int hash(char *key)
 		hash_value = (hash_value * key[i]) % SIZE;
 		i++;
 	}
-	
 	return (hash_value);
 }
 
@@ -33,7 +22,11 @@ t_bool	insert(op_t **hash_table, char *key, void (*f)(t_list **, t_list **))
 {
 	unsigned int index;
 	op_t	*element;
+	int		flag;
 
+	if (!key)
+		return (FALSE);
+	flag = SIZE;
 	element = malloc(1 * sizeof(op_t));
 	if (!element)
 		return (FALSE);
@@ -43,9 +36,11 @@ t_bool	insert(op_t **hash_table, char *key, void (*f)(t_list **, t_list **))
 	while (hash_table[index] != NULL)
 	{
 		index = (index + 1) % SIZE;
+		if (!--flag)
+			return (FALSE);
 	}
 	hash_table[index] = element;
-	return (TRUE);	
+	return (TRUE);
 }
 
 void free_hash_table(op_t **hash_table)
@@ -65,6 +60,7 @@ void free_hash_table(op_t **hash_table)
 		index = (index + 1) % SIZE;
 	}
 }
+
 void	init(op_t **hash_table)
 {
 	int	i;
@@ -77,39 +73,16 @@ void	init(op_t **hash_table)
 t_bool	acces(op_t **hash_table, char *key, t_list **_a, t_list **_b)
 {
 	unsigned int index;
+	unsigned int flag;
 
 	index = hash(key);
-	while (strcmp(hash_table[index]->key, key) != 0)
+	flag = SIZE;
+	while (ft_strcmp(hash_table[index]->key, key) != 0)
 	{
 		index = (index + 1) % SIZE;
+		if (!--flag)
+			return (FALSE);
 	}
 	return (hash_table[index]->operation(_a,_b), TRUE);
 }
-void	test(t_list **a, t_list **b)
-{
-	(void)a;
-	(void)b;
-	printf("test");
-}
-int	main(void)
-{
-	op_t	*hash_table[12];
 
-	init(hash_table);
-	insert(hash_table, "sa", sa);
-	insert(hash_table, "sb", sb);
-	insert(hash_table, "ss", ss);
-	insert(hash_table, "ra", ra);
-	insert(hash_table, "rb", rb);
-	insert(hash_table, "rr", rr);
-	insert(hash_table, "rra", rra);
-	insert(hash_table, "rrb", rrb);
-	insert(hash_table, "rrr", rrr);
-	insert(hash_table, "pa", pa);
-	insert(hash_table, "pb", pb);
-	insert(hash_table, "err", test);
-	// print(hash_table);
-	acces(hash_table, "err", NULL, NULL);
-	free_hash_table(hash_table);
-	return (0);
-}

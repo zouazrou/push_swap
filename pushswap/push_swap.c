@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:38:19 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/01 11:25:21 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:29:23 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	size_a = ft_lstsize(stack_a);
 	if (size_a == 2 && !is_sorted(stack_a))
-		return (sa(&stack_a), 0);
+		return (sa(&stack_a), free_stacks(&stack_a, &stack_b, FALSE), 0);
 	else if (size_a == 3)
 		tree_nmbrs(&stack_a);
 	else if (size_a > 3)
