@@ -1,5 +1,11 @@
 {
 	"files.associations": {
-		"checker_bonus.h": "c"
+		"checker_bonus.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"format": "c",
+		"initializer_list": "c",
+		"span": "c",
+		"push_swap.h": "c"
 	}
 }
