@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:44:52 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/01/31 20:54:29 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/04 09:10:06 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	reverse_rotate(t_list **stack)
 	t_list	*s_to_last;
 	t_list	*last;
 
+	if (!stack || !(*stack) || !(*stack)->next)
+		return ;
 	s_to_last = ft_lstsecondtolast(*stack);
 	if (!s_to_last)
 		return ;
@@ -29,19 +31,16 @@ void	rra(t_list **_a, t_list **_b)
 {
 	(void)_b;
 	reverse_rotate(_a);
-	ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_list **_a, t_list **_b)
 {
 	(void)_a;
 	reverse_rotate(_b);
-	ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_list **_a, t_list **_b)
 {
 	reverse_rotate(_a);
 	reverse_rotate(_b);
-	ft_putstr_fd("rrr\n", 1);
 }

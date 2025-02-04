@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:13 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/01 11:04:45 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:39:30 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	extract_nb(char **nbrs, t_list **stack)
 			(ft_free_array(nbrs), free_stacks(stack, NULL, TRUE));
 		i++;
 	}
+	ft_free_array(nbrs);
 }
 
 void	stack_initialization(t_list **stack, int ac, char **av)
