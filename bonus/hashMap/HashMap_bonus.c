@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:20:54 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 18:39:59 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/05 09:46:43 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_bool	insert(t_op **hash_table, char *key, void (*f)(t_list **, t_list **))
 	element = malloc(1 * sizeof(t_op));
 	if (!element)
 		return (FALSE);
-	strcpy(element->key, key);
+	ft_strcpy(element->key, key);
 	element->operation = f;
 	index = hash(key);
 	while (hash_table[index] != NULL)
