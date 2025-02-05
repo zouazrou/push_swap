@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:41 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/01 11:23:55 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/05 09:52:34 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void				ft_lstclear(t_list **lst);
 
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
 int					ft_isdigit(int c);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);

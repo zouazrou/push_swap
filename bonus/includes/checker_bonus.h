@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:41 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 20:39:45 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/05 09:44:48 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <limits.h> // macros
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 # define TRUE 1
@@ -57,6 +56,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 long				ft_atoi(const char *nptr);
 char				**ft_split(char const *s, char c);
 int					ft_strcmp(const char *s1, const char *s2);
+char				*ft_strcpy(char *dest, char *src);
 
 // handing the errors
 
