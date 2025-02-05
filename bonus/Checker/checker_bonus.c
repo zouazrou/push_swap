@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:19:54 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 18:54:49 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:03:45 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,7 @@
 
 void	free_all(t_list **_a, t_list **_b, t_bool flag, t_op **table)
 {
-	char	*line;
-
-	line = get_next_line(0);
-	while (line)
-	{
-		safe_free(&line);
-		line = get_next_line(0);
-	}
+	get_next_line(-1);
 	free_hash_table(table);
 	free_stacks(_a, _b, flag);
 }

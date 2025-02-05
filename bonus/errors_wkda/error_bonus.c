@@ -6,7 +6,7 @@
 /*   By: zouazrou <zouazrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:33:13 by zouazrou          #+#    #+#             */
-/*   Updated: 2025/02/04 12:03:23 by zouazrou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:42:34 by zouazrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	check(char *av, t_bool sign)
 			count++;
 		i++;
 	}
-	if (count > 11 || (sign == TRUE && non_zero == FALSE) || (sign == TRUE
-			&& !av[0]))
+	if (count > 11 || (sign == TRUE && !av[0]))
 		return (0);
 	return (1337);
 }
