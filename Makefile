@@ -7,12 +7,12 @@ SRCS = $(addprefix pushswap/, push_swap.c utils.c another_utils.c) \
 		ft_lstclear.c ft_lstdelone.c ft_lstlast.c ft_lstnew.c \
 		ft_lstsecondtolast.c ft_lstsize.c ft_putstr_fd.c \
 		ft_split.c ft_strlcpy.c ft_strlen.c) \
-	   $(addprefix errors_wkda/, error.c  utils.c) \
+	   $(addprefix errors/, error.c  utils.c) \
 	   $(addprefix algorithms/, sort_tree_nbs.c  stack_sort_2.c  stack_sort.c)
 
 SRCS_BNS = $(addprefix bonus/, \
 	   Checker/checker_bonus.c \
-	   $(addprefix errors_wkda/, error_bonus.c utils_bonus.c) \
+	   $(addprefix errors/, error_bonus.c utils_bonus.c) \
 	   $(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
 	   $(addprefix hashMap/, HashMap_bonus.c) \
 	   $(addprefix lib/, ft_atoi_bonus.c ft_lstclear_bonus.c ft_lstsecondtolast_bonus.c \
